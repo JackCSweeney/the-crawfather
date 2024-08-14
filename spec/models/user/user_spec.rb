@@ -7,7 +7,10 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password) }
     it { should validate_presence_of(:credits) }
     it { should validate_numericality_of(:credits) }
-    it { should validate_presence_of(:roundup_status) }
+  end
+
+  describe 'enums' do
+    it { should define_enum_for(:roundup_status).with_values(["enabled", "disabled"]) }
   end
 
   describe 'relationships' do
