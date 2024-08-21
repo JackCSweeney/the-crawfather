@@ -1,0 +1,20 @@
+<div class="login-page">
+  <div class="form">
+    <%= form_with url: "/users", method: :post, local: true, data: {turbo: false} do |form|%>
+      <%= form.text_field :name, placeholder: "Name" %><br>
+      <%= form.text_field :email, placeholder: "Email Address" %><br>
+      <%= form.password_field :password, placeholder: "Password" %><br>
+      <%= form.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+      <p class="message">Weekly Round Up Email</p>
+      <div id="enabled">
+        <%= form.label :status_enabled, "Enabled", class: "message" %>
+        <%= form.radio_button :roundup_status, "enabled" %>
+      </div>
+      <div id="disabled">
+        <%= form.label :status_disabled, "Disabled", class: "message" %>
+        <%= form.radio_button :roundup_status, "disabled" %>
+      </div>
+      <%= form.button "Create Account" %>
+    <% end %>
+  </div>
+</div>
