@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_211929) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.integer "credits"
+    t.integer "credits", default: 5
     t.integer "roundup_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,0 +1,11 @@
+<div class="login-page">
+  <h1 class="title">The Crawfather awaits...</h1>
+  <div class="form">
+    <%= form_with url: "/login", method: :post, local: true, data: {turbo: false}, class: "login-form" do |form|%>
+      <%= form.text_field :email, placeholder: "Email" %><br>
+      <%= form.text_field :password, placeholder: "Password" %><br>
+      <%= form.button "Login"%>
+    <% end %>
+    <p class="message">Not registered? <a href="/users/new">Create Account</a></p>
+  </div>
+</div>
