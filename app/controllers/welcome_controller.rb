@@ -12,7 +12,7 @@ class WelcomeController < ApplicationController
       redirect_to "/home"
     else
       flash[:error] = "Error: Email or Password is incorrect"
-      render '/'
+      redirect_to '/'
     end
   end
 
