@@ -7,16 +7,42 @@ RSpec.describe 'User', type: :feature do
       @user = User.create!(user_params)
     end
 
-    it 'can login from the home page' do
-      visit '/'
+    describe '#Happy Path' do
+      it 'can login from the home page' do
+        visit '/'
 
-      fill_in 'Email', with: "test@email.com"
-      fill_in 'Password', with: "password"
-      click_button 'Login'
+        fill_in 'Email', with: "test@email.com"
+        fill_in 'Password', with: "password"
+        click_button 'Login'
 
-      expect(current_path).to eq("/home")
-      # want to figure out how to check the session for the user_id here
-      # expect().to eq(@user.id)
+        expect(current_path).to eq("/home")
+        # want to figure out how to check the session for the user_id here
+        # expect().to eq(@user.id)
+      end
+    end
+
+    describe '#Sad Path' do
+      it 'will not login if given the wrong email' do
+        visit '/'
+
+        fill_in 'Email', with: "bad@email.com"
+        fill_in 'Password', with: "password"
+        click_button 'Login'
+
+        expect(current_path).to eq('/')
+        expect(page).to have_content("Error: Email or Password is incorrect")
+      end
+
+      it 'will not login if given the wrong password' do
+        visit '/'
+
+        fill_in 'Email', with: "test@email.com"
+        fill_in 'Password', with: "bad password"
+        click_button 'Login'
+
+        expect(current_path).to eq('/')
+        expect(page).to have_content("Error: Email or Password is incorrect")
+      end
     end
   end
 end
