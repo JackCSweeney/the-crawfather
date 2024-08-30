@@ -94,9 +94,52 @@
   color: #EF3B3A;
 }
 body {
-  background: #494a49;
-  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(63, 63, 63) 50%);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
+  background-color: #cccccc;
+  background-size: cover;
+}
+body.background {
+  background-image: url('shrimp.png');
+}
+
+.question {
+  position: relative;
+  z-index: 1;
+  width: 80%;
+  margin: auto auto auto;
+  padding: 15px;
+  text-align: center;
+}
+
+.question input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.question button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #818181;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.question button:hover,.question button:active,.question button:focus {
+  background: #000000;
 }
