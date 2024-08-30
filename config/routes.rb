@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   post '/login', to: 'welcome#login'
+  delete '/logout', to: 'welcome#logout'
   get '/users/new', to: 'users#new'
   post '/users', to: 'users#create'
   get '/home', to: 'users#show'
+  get '/dashboard', to: 'users#dashboard'
 end
