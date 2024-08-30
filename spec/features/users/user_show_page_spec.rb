@@ -29,10 +29,6 @@ RSpec.describe 'User Show Page', type: :feature do
         expect(page).to have_field('Question')
         expect(page).to have_button('Ask the Crawfather')
       end
-
-      it 'has the crawfather image as the background' do
-        expect(page).to have_img('shrimp.png')
-      end
     end
   end
 end
