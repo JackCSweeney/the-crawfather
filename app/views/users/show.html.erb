@@ -1,0 +1,17 @@
+<body class=background>
+  <div class=question-page>
+
+    <div class=question>
+      <%= button_to "Dashboard", '/dashboard' %>
+      <%= button_to "Log Out", '/logout' %>
+    </div>
+
+
+    <div class=question>
+      <%= form_with url: "/question", method: :post, local: true, data: {turbo: false} do |form|%>
+        <%= form.text_field :question, placeholder: "Question", class: "input" %>
+        <%= form.button "Ask the Crawfather" %>
+      <% end %>
+    </div>
+  </div>
+</body>
