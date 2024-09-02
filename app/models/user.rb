@@ -5,4 +5,8 @@ class User < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_secure_password
   enum roundup_status: ["enabled", "disabled"]
+
+  def recent_question?
+    self.questions.last.created_at >= 2.minutes.ago
+  end
 end
