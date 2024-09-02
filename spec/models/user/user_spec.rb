@@ -18,4 +18,14 @@ RSpec.describe User, type: :model do
     it {should have_many :questions}
   end
 
+  describe '#instance methods' do
+    describe '#recent_question?' do
+      it 'returns true if a users last question was created less than two minutes ago' do
+        user = User.create!({name: "test", email: "test@email.com", password: "password", password_confirmation: "password", roundup_status: 1})
+        user.questions.create!({question: "Hey there", response: "Nope"})
+
+        expect(user.recent_question?).to eq(true)
+      end
+    end
+  end
 end
