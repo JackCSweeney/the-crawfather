@@ -97,11 +97,9 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
+  background-image: url('shrimp.png');
   background-color: #cccccc;
   background-size: cover;
-}
-body.background {
-  background-image: url('shrimp.png');
 }
 
 .question {
@@ -142,4 +140,16 @@ body.background {
 
 .question button:hover,.question button:active,.question button:focus {
   background: #000000;
+}
+
+.response {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
