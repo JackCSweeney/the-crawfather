@@ -1,0 +1,24 @@
+{  
+  "id": "chatcmpl-A35EUO6U5C7f20HzWiCtoQmKKtfqR",
+  "object": "chat.completion",
+  "created": 1725298462,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Ay, listen up, kid. If ya wanna dominate the fantasy football seas this year, you gotta go with my main shrimp, I mean man, Alvin Kamara. This guy's gonna be slicin' through defenses like a katana through a shrimp cocktail. Trust me, he's gonna be the top RB in the game, capisce? But hey, what do I know? I'm just a humble crawfather tryin' to make a splash in the fantasy world.",
+        "refusal": null
+        },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 52,
+    "completion_tokens": 98,
+    "total_tokens": 150
+  },
+  "system_fingerprint": null
+}
