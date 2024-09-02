@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'welcome#logout'
   get '/users/new', to: 'users#new'
   post '/users', to: 'users#create'
-  get '/home', to: 'users#show'
+  get '/home', to: 'users#home'
   get '/dashboard', to: 'users#dashboard'
 end
