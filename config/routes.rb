@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
   get '/home', to: 'users#home'
   get '/dashboard', to: 'users#dashboard'
+  post '/question', to: 'questions#new'
 end
