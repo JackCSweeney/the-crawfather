@@ -7,6 +7,10 @@ class User < ApplicationRecord
   enum roundup_status: ["enabled", "disabled"]
 
   def recent_question?
-    self.questions.last.created_at >= 2.minutes.ago
+    if self.questions.last
+      self.questions.last.created_at >= 2.minutes.ago
+    else
+      false
+    end
   end
 end
