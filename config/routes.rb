@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root 'welcome#index'
-  post '/login', to: 'sessions#create'
+  post '/login', to: 'welcome#login'
+  delete '/logout', to: 'welcome#logout'
   get '/users/new', to: 'users#new'
   post '/users', to: 'users#create'
-  get '/home', to: 'home#show'
+  get '/home', to: 'users#home'
+  get '/dashboard', to: 'users#dashboard'
+  post '/question', to: 'questions#new'
 end
