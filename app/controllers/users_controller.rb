@@ -4,6 +4,7 @@ class UsersController < ApplicationController
       @user = User.find(session[:user_id])
       @response = @user.questions.last.response if @user.recent_question?
     else
+      flash[:error] = "You must be logged in to speak with The Crawfather"
       redirect_to root_path
     end
   end
