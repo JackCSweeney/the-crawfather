@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get '/home', to: 'users#home'
   get '/dashboard', to: 'users#dashboard'
   post '/question', to: 'questions#new'
+  get '/edit', to: 'users#edit'
+  
 end

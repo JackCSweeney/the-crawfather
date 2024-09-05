@@ -20,6 +20,7 @@ RSpec.describe 'User Edit Account' do
         visit '/dashboard'
         click_button ('Edit Account')
 
+        expect(current_path).to eq('/edit')
         expect(page).to have_field('Name', placeholder: 'test')
         expect(page).to have_field('Email', placeholder: 'test@email.com')
         within '#enabled' do
