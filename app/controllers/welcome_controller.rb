@@ -16,6 +16,12 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def logout
+    reset_session if session[:user_id]
+    flash[:success] = "You have successfully logged out"
+    redirect_to '/'
+  end
+
   private
   def user_params
     params.permit(:email, :password)
