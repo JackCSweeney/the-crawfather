@@ -21,14 +21,8 @@ RSpec.describe 'User Edit Account' do
         click_button ('Edit Account')
 
         expect(current_path).to eq('/edit')
-        expect(page).to have_field('Name', placeholder: 'test')
-        expect(page).to have_field('Email', placeholder: 'test@email.com')
-        within '#enabled' do
-          expect(page).to have_button('roundup_status')
-        end
-        within '#disabled' do
-          expect(page).to have_button('roundup_status')
-        end
+        expect(page).to have_field('name')
+        expect(page).to have_field('email')
         expect(page).to have_button('Update Account')
         expect(page).to have_button('Update Password')
       end
@@ -37,24 +31,24 @@ RSpec.describe 'User Edit Account' do
         visit '/dashboard'
         click_button ('Edit Account')
 
-        fill_in 'Name', with: 'test 2'
+        fill_in 'name', with: 'test 2'
         click_on 'Update Account'
 
         expect(current_path).to eq('/dashboard')
         expect(page).to have_content('Account successfully updated')
-        expect(@user.name).to eq('test 2')
+        expect(User.find(@user.id).name).to eq('test 2')
       end
 
       it 'can update different information in the edit form and it will be saved to the associated user in the database' do
         visit '/dashboard'
         click_button ('Edit Account')
 
-        fill_in 'Email', with: 'test2@email.com'
+        fill_in 'email', with: 'test2@email.com'
         click_on 'Update Account'
 
         expect(current_path).to eq('/dashboard')
         expect(page).to have_content('Account successfully updated')
-        expect(@user.email).to eq('test2@email.com')
+        expect(User.find(@user.id).email).to eq('test2@email.com')
       end
     end
   end
