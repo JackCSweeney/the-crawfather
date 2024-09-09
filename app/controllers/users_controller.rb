@@ -32,8 +32,30 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(session[:user_id])
+  end
+
+  def update
+    user = User.find(session[:user_id])
+    update_account(user)
+    # require 'pry' ; binding.pry
+    if user.save!(validate: false)
+      redirect_to '/dashboard'
+      flash[:success] = 'Account successfully updated'
+    else
+      flash[:error] = "Error: #{error_message(user.errors)}"
+      redirect_to '/edit'
+    end
+  end
+
   private
   def user_params
     params.permit(:name, :email, :password, :password_confirmation, :roundup_status)
+  end
+
+  def update_account(user)
+    user.email = params[:email] if params[:email]
+    user.name = params[:name] if params[:name]
   end
 end
