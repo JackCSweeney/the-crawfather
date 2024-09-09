@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   post '/question', to: 'questions#new'
   get '/edit', to: 'users#edit'
+  patch '/users', to: 'users#update'
   
 end
