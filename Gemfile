@@ -54,6 +54,7 @@ group :development, :test do
   gem "simplecov"
   gem "shoulda-matchers"
   gem "dotenv-rails"
+  gem "launchy"
 end
 
 group :development do
