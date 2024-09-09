@@ -1,0 +1,10 @@
+<div class="login-page">
+  <div class="form">
+    <%= form_with url: "/users", method: :patch, local: true, data: {turbo: false} do |form|%>
+      <%= form.text_field :name, value: @user.name %><br>
+      <%= form.text_field :email, value: @user.email %><br>
+      <%= form.button "Update Account" %>
+    <% end %>
+    <%= button_to "Update Password", '/password' %>
+  </div>
+</div>
