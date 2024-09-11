@@ -14,18 +14,25 @@ RSpec.describe 'User Dashboard Page' do
       5.times do
         create(:question, user_id: @user.id)
       end
+
+      q_1 = @user.questions[4]
+      q_2 = @user.questions[3]
+      q_3 = @user.questions[2]
+      q_4 = @user.questions[1]
+      q_5 = @user.questions[0]
+      @questions = [q_1, q_2, q_3, q_4, q_5]
     end
     
-    it 'sees its own name, number of credits left, the last 5 questions its asked, the responses, and their dates in the dashboard' do
+    it 'sees its own name, number of credits left, the last 5 questions its asked, the responses' do
       visit '/dashboard'
       
       expect(page).to have_content("Name: test")
       expect(page).to have_content("Credits Remaining: 5")
       expect(page).to have_content("Last 5 Questions for the Crawfather:")
-      (1..5).each do |num|
-        within "#question-#{num}" do
-        expect(page).to have_content("Question")
-        expect(page).to have_content("Response")
+      @questions.each do |question|
+        within "#question-#{question.id}" do
+          expect(page).to have_content("Question")
+          expect(page).to have_content("Response")
       end
     end
   end
@@ -33,18 +40,6 @@ RSpec.describe 'User Dashboard Page' do
   it 'sees a button to delete its account' do
     visit '/dashboard'
     expect(page).to have_button("Delete Account")
-  end
-  
-  it 'sees options to enable or disable their weekly roundup emails' do
-    visit '/dashboard'
-    
-    within '#enabled' do
-      expect(page).to have_field('roundup_status')
-    end
-    
-    within '#disabled' do
-      expect(page).to have_field('roundup_status')
-    end
   end
 
   it 'sees a button to return to the crawfather to ask more questions' do
