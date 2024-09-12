@@ -1,1 +1,24 @@
-<%= button_to "Edit Account", '/edit', method: :get %>
+<div class=form>
+  <%= button_to "Edit Account", '/edit', method: :get %>
+  <%= button_to "Log Out", '/logout', method: :delete %>
+  <%= button_to "Delete Account", '/logout', method: :delete %>
+  <%= button_to "Return to the Crawfather", '/home', method: :get %>
+</div>
+<body class=dashboard>
+  <div id=dashboard-account-info>
+    <p>Name: <%= @user.name %></p>
+    <p>Credits Remaining: <%= @user.credits %></p>
+    <p>Last 5 Questions for the Crawfather:</p>
+    <% if @user.questions %>
+      <ul>
+        <% @user.questions.reverse_each do |question| %>
+          <div id="question-<%= question.id %>">
+            <li>Question: <%= question.question %></li>
+            <li>Response: <%= question.response %></li>
+          </div>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</body>    
+

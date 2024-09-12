@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       @user = User.find(session[:user_id])
     else
       redirect_to root_path
+      flash[:error] = "You must be logged in to view your dashboard page"
     end
   end
 
