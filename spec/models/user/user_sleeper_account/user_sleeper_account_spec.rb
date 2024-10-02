@@ -12,7 +12,7 @@ RSpec.describe UserSleeperAccount do
     before(:each) do
       @user = User.create!({name: "test", email: "test@email.com", password: "password", password_confirmation: "password", roundup_status: 1})
       @sleeper_username = "SweeneysWeenies"
-      @sleeper_user_id = 
+      @sleeper_user_id = 12345678
     end
 
     describe '.get_id_and_create(sleeper_username, user_id)' do
