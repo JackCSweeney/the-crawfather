@@ -19,18 +19,18 @@ RSpec.describe 'Sleeper Fantasy Teams on User Dashboard' do
       end
 
       it 'has a field and button to add a sleeper league to your account by league id' do
-        within '#sleeper_leagues' do
-          within '#add_a_league' do
+        within '#sleeper-leagues' do
+          within '#add-a-league' do
             expect(page).to have_content('Add Sleeper League by League ID & Username (Can be found in League General Settings)')
 
-            within '#league_id' do
+            within '#league-id' do
               expect(page).to have_content('Sleeper League ID')
               expect(page).to have_field('sleeper_league_id')
             end
 
-            with '#username' do
+            within '#sleeper-username' do
               expect(page).to have_content('Sleeper Username')
-              expect(page).to have_field('username')
+              expect(page).to have_field('sleeper_username')
             end
 
             expect(page).to have_button('Add League')
@@ -39,13 +39,13 @@ RSpec.describe 'Sleeper Fantasy Teams on User Dashboard' do
       end
 
       it 'can enter a valid league id and username and see the team populate on their user dashboard' do
-        within '#sleeper_leagues' do
-          within '#add_a_league' do
-            within '#league_id' do
+        within '#sleeper-leagues' do
+          within '#add-a-league' do
+            within '#league-id' do
               fill_in 'sleeper_league_id', with: @sleeper_league_id
             end
-            within '#username' do
-              fill_in 'username', with: @sleeper_username
+            within '#sleeper-username' do
+              fill_in 'sleeper_username', with: @sleeper_username
             end
 
             click_button 'Add League'
@@ -54,8 +54,8 @@ RSpec.describe 'Sleeper Fantasy Teams on User Dashboard' do
 
         expect(current_path).to eq('/dashboard')
         
-        within '#sleeper_leagues' do
-          within '#current_leagues' do
+        within '#sleeper-leagues' do
+          within '#current-leagues' do
             expect(page).to have_content('Dynasty Daddies')
             expect(page).to have_select('Week', options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'], selected: '4')
 
@@ -63,11 +63,11 @@ RSpec.describe 'Sleeper Fantasy Teams on User Dashboard' do
               expect(page).to have_content('Current Record: 1 - 2')
             end
 
-            within '#current_points' do
+            within '#current-points' do
               expect(page).to have_content('')
             end
 
-            within '#current_opponent_points' do
+            within '#current-opponent-points' do
               expect(page).to have_content('')
             end
             
