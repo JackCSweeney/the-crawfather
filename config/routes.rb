@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   post '/question', to: 'questions#new'
   get '/edit', to: 'users#edit'
   patch '/users', to: 'users#update'
-  
+  post '/sleeper_leagues/create', to: 'sleeper_leagues#create'  
 end
