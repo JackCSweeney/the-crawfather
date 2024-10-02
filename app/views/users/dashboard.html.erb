@@ -20,5 +20,20 @@
       </ul>
     <% end %>
   </div>
-</body>    
-
+  <div id=sleeper-leagues>
+    <div id=add-a-league>
+      <p>Add Sleeper League by League ID & Username (Can be found in League General Settings)</p>
+      <%= form_with url: "/sleeper_leagues/create", method: :post, local: true, data: {turbo: false} do |form|%>
+        <div id=league-id>
+          <%= form.label :sleeper_league_id, "Sleeper League ID" %>
+          <%= form.text_field :sleeper_league_id %>
+        </div>
+        <div id=sleeper-username>
+          <%= form.label :sleeper_username, "Sleeper Username" %>
+          <%= form.text_field :sleeper_username %>
+        </div>
+        <%= form.submit "Add League" %>
+      <% end %>
+    </div>
+  </div>
+</body>
