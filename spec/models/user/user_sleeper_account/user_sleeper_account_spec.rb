@@ -13,6 +13,16 @@ RSpec.describe UserSleeperAccount do
       @user = User.create!({name: "test", email: "test@email.com", password: "password", password_confirmation: "password", roundup_status: 1})
       @sleeper_username = "SweeneysWeenies"
       @sleeper_user_id = 12345678
+
+      json_response = File.read("spec/fixtures/sleeper_id_by_username.json")
+      stub_request(:get, "https://api.sleeper.app/user/SweeneysWeenies").
+         with(
+          headers: {
+          'Accept'=>'*/*',
+          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'User-Agent'=>'Faraday v2.10.1'
+           }).
+         to_return(status: 200, body: json_response, headers: {})
     end
 
     describe '.get_id_and_create(sleeper_username, user_id)' do
