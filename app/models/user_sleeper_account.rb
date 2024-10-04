@@ -3,7 +3,7 @@ class UserSleeperAccount < ApplicationRecord
   validates :sleeper_username, :sleeper_user_id, :user_id, presence: true
 
   def self.get_sleeper_user_id(sleeper_username)
-    SleeperFacade.get_sleeper_user_id(sleeper_user_name)
+    SleeperFacade.get_sleeper_user_id(sleeper_username)
   end
 
   def self.get_id_and_create(sleeper_username, user_id)
