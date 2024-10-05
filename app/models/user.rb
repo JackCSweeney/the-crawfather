@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :credits, presence: true, numericality: true
   has_many :questions, dependent: :destroy
   has_many :user_sleeper_accounts, dependent: :destroy
+  has_many :user_sleeper_leagues, dependent: :destroy
   has_secure_password
   enum roundup_status: ["enabled", "disabled"]
 
