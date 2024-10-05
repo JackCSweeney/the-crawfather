@@ -17,6 +17,7 @@ RSpec.describe User, type: :model do
   describe 'relationships' do
     it {should have_many :questions}
     it {should have_many :user_sleeper_accounts}
+    it {should have_many :user_sleeper_leagues}
   end
 
   describe '#instance methods' do
