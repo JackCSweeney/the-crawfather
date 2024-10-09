@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_05_001853) do
   end
 
   create_table "user_sleeper_leagues", force: :cascade do |t|
-    t.string "league_name"
+    t.string "sleeper_league_name"
     t.integer "sleeper_league_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
