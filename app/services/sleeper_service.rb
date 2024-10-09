@@ -7,4 +7,9 @@ class SleeperService
   def self.conn
     Faraday.new(url: "https://api.sleeper.app")
   end
+
+  def self.get_sleeper_league_name(sleeper_league_id)
+    response = conn.get("/v1/league/#{sleeper_league_id}")
+    JSON.parse(response.body, symbolize_names: true)[:name]
+  end
 end
