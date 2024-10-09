@@ -8,7 +8,7 @@ RSpec.describe SleeperFacade do
       @sleeper_user_id = 12345678
 
       json_response = File.read("spec/fixtures/sleeper_id_by_username.json")
-      stub_request(:get, "https://api.sleeper.app/user/SweeneysWeenies").
+      stub_request(:get, "https://api.sleeper.app/v1/user/SweeneysWeenies").
          with(
           headers: {
           'Accept'=>'*/*',
